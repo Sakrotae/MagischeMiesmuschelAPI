@@ -5,9 +5,10 @@ const getRandomMiesmuschelStatement = require('../services/miesmuschelService').
 /* GET Aussage magische Miesmuschel
     URL-Parameter q: Fragen an die magische Miesmuschel
 */
-router.get('/', function(req, res, next) {
+router.get('/api', function(req, res, next) {
   const frage = req.query.q
 
+  // Validation Parameter 
   if(!frage){
     return res.status(500).json({error: "Frage muss angegeben werden über URL-Parameter q"})
   }
@@ -24,5 +25,12 @@ router.get('/', function(req, res, next) {
     antwort: randomStatment
   });
 });
+
+/*
+  Zeige als Startseite /views/index.pug
+*/
+router.get('/', function(req, res, next){
+  res.render('index', {title: "Magische Miesmuschel"});
+})
 
 module.exports = router;
