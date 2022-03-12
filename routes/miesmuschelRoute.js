@@ -10,7 +10,7 @@ router.get('/api', function(req, res, next) {
 
   // Validation Parameter 
   if(!frage){
-    return res.status(500).json({error: "Frage muss angegeben werden über URL-Parameter q"})
+    return res.status(400).json({error: "Frage muss angegeben werden über URL-Parameter q"})
   }
 
   try{
