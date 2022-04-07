@@ -26,6 +26,17 @@ router.get('/api', function(req, res, next) {
   });
 });
 
+/* GET Only Test-Service für Testzwecke
+*/
+router.get('/api/test', function(req, res, next) {
+  const frage = req.query.q
+
+  
+  return res.status(200).json({
+    purpose: "Test"
+  });
+});
+
 /*
   Zeige als Startseite /views/index.pug
 */
